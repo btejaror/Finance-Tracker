@@ -1,15 +1,33 @@
-<h2>User details</h2>
+<h2>Profile Details</h2>
   <dl class="dl-horizontal">
-    <dt><strong>Full Name</strong></dt>
-      <dd><%= @user.full_name %></dd>
-    <dt><strong>Email</strong></dt>
+<dt><strong>Full Name:</strong></dt>
+<dd><%= @user.full_name %></dd>
+    <dt><strong>Email:</strong></dt>
       <dd><%= @user.email %></dd>
   </dl>
 
-  <% if @user.stocks.size > 0 %> 
-
-    <%= render 'stocks/list', locals: {user_stocks: @user_stocks}  %> 
-    <% else %>
+  <table class="table table-stripe">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Current Price</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% if @user.stocks.size > 0 %> 
+       <% @user_stocks.each do |user_stock| %>
+  <tr>
+      <td> <%= user_stock.stock.try(:name) %></td>
+      <td><%= user_stock.stock.try(:ticker) %></td>
+      <td><%= user_stock.stock.try(:price) %></td>
+  </tr>
+   <% end %>
+     <% else %>
     <p class="lead">This user is not tracking any stocks</p>
-    <% end %>
+    <% end %> 
+    </tbody>
+    </table>
+<div class = "back" > 
 <%= link_to "Back", my_friends_path, class: 'btn btn-primary' %>
+</div>
