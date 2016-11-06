@@ -5,8 +5,10 @@
     <dt><strong>Email</strong></dt>
       <dd><%= @user.email %></dd>
   </dl>
+
   <% if @user.stocks.size > 0 %> 
-    <%= render 'stocks/list' %> 
+
+    <%= render 'stocks/list', locals: {user_stocks: @user_stocks}  %> 
     <% else %>
     <p class="lead">This user is not tracking any stocks</p>
     <% end %>

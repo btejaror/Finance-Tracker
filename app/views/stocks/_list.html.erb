@@ -10,11 +10,12 @@
     </tr>
   </thead>
   <tbody>
+
 	<% @user_stocks.each do |user_stock| %>
 	<tr>
-      <td><%= user_stock.name %></td>
-      <td><%= user_stock.ticker %></td>
-      <td><%= user_stock.price %></td>
+      <td><%= user_stock.stock.try(:name) %></td>
+      <td><%= user_stock.stock.try(:ticker) %></td>
+      <td><%= user_stock.stock.try(:price) %></td>
       <% if @user.id == current_user.id %>
       <td>
         <%= link_to 'Delete', user_stock_path(user_stock), 
