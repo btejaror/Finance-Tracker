@@ -1,3 +1,4 @@
+
 $navbar-default-bg: black;
 
 .results-block {
@@ -20,15 +21,17 @@ padding-top: 15px;
 padding-left: 0;
 }
 
+
 .navbar{
-	background-color: grey;
+	background-color: blue;
 	font-color: red;
 }
 
-.navbar-brand {
-	background-color: red;
+.navbar {
+	background-color: blue;
 	font-weight: bold;
 	color: black;
+	font-color: green;
 }
 
 
@@ -59,4 +62,15 @@ padding-left: 0;
 	letter-spacing: -1px;
 
 	}
+
+.nav.navbar-right li {
+.btn {
+color: #fff !important;
+margin-top: 5%;
+}
+
+.btn-danger:hover {
+background-color: darken(#d9534f, 20%) !important;
+}
+}
 
